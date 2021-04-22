@@ -1,0 +1,1 @@
+// to interact with the user DB from auth router & middleware
