@@ -6,7 +6,7 @@ const get = () => {
 		.select('*')
 }
 
-const findById = (id) => {
+const getById = (id) => {
 	return db('classes as c')
 		.join('users as u', 'u.id', 'c.user_id')
 		.where({ id })
@@ -16,17 +16,17 @@ const findById = (id) => {
 const add = async (newClass) => {
 	const id = await db('classes').insert(newClass);
 
-	return findById(id);
+	return getById(id);
 }
 
 const update = async (id, updatedClass) => {
 	const id = await db('classes').where({ id }).update(updatedClass)
 
-	return findById(id);
+	return getById(id);
 }
 
 module.exports = {
 	get,
-	findById,
+	getById,
 	add
 }
