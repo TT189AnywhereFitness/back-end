@@ -12,17 +12,17 @@ const sharedConfig = {
       conn.run('PRAGMA foreign_keys = ON', done)
     },
   },
-}
+} 
 
 module.exports = {
 
   development: {
     ...sharedConfig,
-    connection: {filename: './dev.sqlite3'}
+    connection: {filename: './data/dev.sqlite3'}
   },
 
   testing: {
     ...sharedConfig,
-    connection: {filename: './testing.sqlite3'}
+    connection: {filename: './data/testing.sqlite3'}
   }
 };
