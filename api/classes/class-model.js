@@ -14,15 +14,15 @@ const getById = (id) => {
 }
 
 const add = async (newClass) => {
-	const id = await db('classes').insert(newClass);
+	const newId = await db('classes').insert(newClass);
 
-	return getById(id);
+	return getById(newId);
 }
 
 const update = async (id, updatedClass) => {
-	const id = await db('classes').where({ id }).update(updatedClass)
+	const updatedId = await db('classes').where({ id: updatedId }).update(updatedClass)
 
-	return getById(id);
+	return getById(updatedId);
 }
 
 module.exports = {
