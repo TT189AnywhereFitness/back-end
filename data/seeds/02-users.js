@@ -1,52 +1,65 @@
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex('clients').del()
+  return knex('users').del()
     .then(function () {
       // Inserts seed entries
-      return knex("clients").insert([
+      return knex("users").insert([
         {
-          client_name: "Bob S",
+          user_name: "Paula O",
+          password: "password",
+          token: "205",
+          registered: "Yoga",
+        },
+        {
+          user_name: "Kyle A",
+          password: "password",
+          token: "235",
+          registered: "High Intensity Interval Training",
+        },
+
+        {
+          user_name: "Bob S",
           password: "password",
           registered: "High Intensity Interval Training",
         },
         {
-          client_name: "Barb Wilson",
+          user_name: "Barb Wilson",
           password: "password",
           registered: "High Intensity Interval Training",
         },
         {
-          client_name: "Sasha Harriet",
+          user_name: "Sasha Harriet",
           password: "password",
           registered: "High Intensity Interval Training",
         },
         {
-          client_name: "Steven Q",
+          user_name: "Steven Q",
           password: "password",
           registered: "High Intensity Interval Training",
         },
         {
-          client_name: "Quentin A",
+          user_name: "Quentin A",
           password: "password",
           registered: "Yoga",
         },
         {
-          client_name: "Steven Q",
+          user_name: "Susie Q",
           password: "password",
           registered: "Aqua Fit",
         },
         {
-          client_name: "Steven Q",
+          user_name: "Gib Q",
           password: "password",
           registered: "Yoga",
         },
         {
-          client_name: "Barb Wilson",
+          user_name: "Harriet Wilson",
           password: "password",
           registered: "Yoga",
         },
         {
-          client_name: "Elise M",
+          user_name: "Elise M",
           password: "password",
           registered: "Aqua Fit",
         },
