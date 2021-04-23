@@ -28,5 +28,6 @@ const update = async (id, updatedClass) => {
 module.exports = {
 	get,
 	getById,
-	add
+	add,
+	update
 }
