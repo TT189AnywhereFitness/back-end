@@ -1,4 +1,4 @@
-const pgConnection = procces.env.DATABASE_URL;
+const pgConnection = process.env.DATABASE_URL;
 
 const sharedConfig = {
   client: 'sqlite3',
