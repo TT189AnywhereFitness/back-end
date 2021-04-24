@@ -29,7 +29,7 @@ module.exports = {
 
 	production: {
 		...sharedConfig,
-		client: pg,
+		client: 'pg',
 		connection: { connectionString: pgConnection },
 		ssl: { rejectUnauthorized: false },
 		pool: {
