@@ -16,7 +16,7 @@ server.use('/api/classes', classRouter);
 
 server.use((err, req, res, next) => {
 	// eslint-disable-line
-	res.status(500).json({
+	res.status(err.status).json({
 		message: err.message,
 		stack: err.stack,
 	});
