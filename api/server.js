@@ -10,6 +10,10 @@ server.use(helmet())
 server.use(express.json());
 server.use(cors());
 
+server.get("/", (req, res) => {
+  res.status(200).json({ api: "up" });
+});
+
 // server.use('/api/auth', Router);
 // server.use('/api/users', Router);
 server.use('/api/classes', classRouter);
