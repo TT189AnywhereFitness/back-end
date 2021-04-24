@@ -1,15 +1,13 @@
 exports.seed = function (knex) {
   // Deletes ALL existing entries
-  return knex("roles")
+  return knex("user-class")
     .del()
     .then(function () {
       // Inserts seed entries
-      return knex("roles").insert([
+      return knex("user-class").insert([
         {
-          name: "instructor",
-        },
-        {
-          name: "client",
+          users: 1,
+          classes: 1,
         },
       ]);
     });
