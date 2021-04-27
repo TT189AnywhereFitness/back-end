@@ -1,11 +1,17 @@
-// login, register, logout
+const express = require('express');
+const router = express.Router();
+const Users = require('../users/user-model.js');
 
-var express = require('express');
-var router = express.Router();
+router.post('/register', (req, res, next) => {
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+});
+
+router.post('/login', (req, res, next) => {
+  
+});
+
+router.post('/logout', (req, res, next) => {
+  
 });
 
 module.exports = router;
