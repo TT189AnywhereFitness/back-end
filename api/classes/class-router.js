@@ -4,7 +4,7 @@ const Classes = require('./class-model.js');
 
 // GET all classes
 router.get('/', (req, res, next) => {
-  Classes.get
+  Classes.get()
     .then((classes) => res.status(200).json(classes))
     .catch(err => next({...err, status: 500}));
 });
