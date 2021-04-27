@@ -15,6 +15,7 @@ exports.seed = function (knex) {
           intensity: "low-high",
           location: "online",
           max_size: 32,
+          instructor_id: 1
         },
         {
           class_name: "Aqua Fit",
@@ -26,6 +27,7 @@ exports.seed = function (knex) {
           intensity: "low",
           location: "near you",
           max_size: 15,
+          instructor_id: 2
         },
         {
           class_name: "Indoor Cycling",
@@ -37,6 +39,7 @@ exports.seed = function (knex) {
           intensity: "low-high",
           location: "near you",
           max_size: 16,
+          instructor_id: 7
         },
         {
           class_name: "High Intensity Interval Training",
@@ -48,6 +51,7 @@ exports.seed = function (knex) {
           intensity: "high",
           location: "near you",
           max_size: 12,
+          instructor_id: 1
         },
         {
           class_name: "Boot Camp",
@@ -59,6 +63,7 @@ exports.seed = function (knex) {
           intensity: "high",
           location: "near you",
           max_size: 16,
+          instructor_id: 2
         },
         {
           class_name: "Yoga",
@@ -70,6 +75,7 @@ exports.seed = function (knex) {
           intensity: "high",
           location: "near you",
           max_size: 20,
+          instructor_id: 7
         },
       ]);
     });
