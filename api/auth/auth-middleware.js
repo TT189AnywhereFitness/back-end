@@ -1,14 +1,19 @@
 // for restricted, credential validation, etc.
 
-const checkUsernameAvail = () => {
+const checkUsernameAvail = (req, res, next) => {
 	next();
 };
 
-const validatePassword = () => {
+const validatePassword = (req, res, next) => {
+	next();
+};
+
+const checkUserExists = (req, res, next) => {
 	next();
 };
 
 module.exports = {
 	checkUsernameAvail,
 	validatePassword,
+	checkUserExists,
 }

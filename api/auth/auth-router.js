@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const Users = require('../users/user-model.js');
+const {checkUsernameAvail, validatePassword, checkUserExists} = require('./auth-middleware.js');
 const JWT_SECRET = require('../secrets');
 
 
@@ -22,12 +23,14 @@ router.post('/register', checkUsernameAvail, validatePassword, (req, res, next) 
 		.catch(err => next({...err, status: 500}));
 });
 
+// !Debug login by creating a new user first.
+// !Passwords are stored in plain text so, of course, bcrypt is not working.
 
 //POST login an existing user
-router.post('/login', (req, res, next) => {
+router.post('/login', checkUserExists, (req, res, next) => {
   const {user_name, password} = req.body;
 
-	Users.findBy({username})
+	Users.getBy({user_name})
 		.then((foundUser) => {
 			if (foundUser && bcrypt.compareSync(password, foundUser.password)) {
 				const token = generateToken(foundUser);
@@ -35,10 +38,11 @@ router.post('/login', (req, res, next) => {
 					message: `Hey there, ${foundUser.user_name}!`,
 					token
 				})
-
+			} else {
+				res.status(401).json({message: 'Invalid credentials'})
 			}
 		})
-		.catch(err => next({...err, status: 500}));
+		.catch(err => next({...err, status: 500, message: 'something went wrong'}));
 });
 
 const generateToken = (user) => {

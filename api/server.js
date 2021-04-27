@@ -3,6 +3,7 @@ const helmet = require('helmet');
 const cors = require('cors');
 
 const classRouter = require('./classes/class-router.js');
+const authRouter = require('./auth/auth-router.js');
 
 const server = express();
 
@@ -14,13 +15,12 @@ server.get("/", (req, res) => {
   res.status(200).json({ api: "up" });
 });
 
-// server.use('/api/auth', Router);
-// server.use('/api/users', Router);
+server.use('/api/auth', authRouter);
 server.use('/api/classes', classRouter);
 
 server.use((err, req, res, next) => {
 	// eslint-disable-line
-	res.status(err.status).json({
+	res.status(500).json({
 		message: err.message,
 		stack: err.stack,
 	});
