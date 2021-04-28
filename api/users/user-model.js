@@ -10,13 +10,13 @@ function getBy(filter) {
 }
 
 async function add(newUser) {
-    const [user_id] = await db('users').instert(newUser, 'user_id')
+    const [user_id] = await db('users').insert(newUser, 'user_id')
 
     return getById(user_id)
 }
 
 function getById(user_id) {
-    return db("users").select("user_name", "role", 'password').where({'user_id':user_id})
+    return db("users").select("user_name", "role", 'password').where({'user_id':user_id}).first();
 }
 
 function update(user_id, newdata) {

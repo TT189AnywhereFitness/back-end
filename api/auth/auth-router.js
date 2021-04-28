@@ -23,8 +23,6 @@ router.post('/register', checkUsernameAvail, validatePassword, (req, res, next) 
 		.catch(err => next({...err, status: 500}));
 });
 
-// !Debug login by creating a new user first.
-// !Passwords are stored in plain text so, of course, bcrypt is not working.
 
 //POST login an existing user
 router.post('/login', checkUserExists, (req, res, next) => {
