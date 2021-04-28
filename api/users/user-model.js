@@ -1,23 +1,22 @@
 // to interact with the user DB from auth router & middleware
 const db = require('../../data/db-config')
-const { getById } = require('../classes/class-model')
 
 function get() {
     return db('users').select('user_name','role')
 }
 
 function getBy(filter) {
-    return db('users').where(filter).orderBy('user_name')
+    return db('users').where(filter).orderBy('user_name').first();
 }
 
 async function add(newUser) {
-    const [user_id] = await db('users').instert(newUser, 'user_id')
+    const [user_id] = await db('users').insert(newUser, 'user_id')
 
     return getById(user_id)
 }
 
 function getById(user_id) {
-    return db("users").select("user_name", "role", 'password').where({'user_id':user_id})
+    return db("users").select("user_name", "role", 'password').where({'user_id':user_id}).first();
 }
 
 function update(user_id, newdata) {
