@@ -27,7 +27,7 @@ const validatePassword = (req, res, next) => {
 };
 
 const checkUserExists = (req, res, next) => {
-  next({ apiCode: 500, apiMessage: 'error validating credentials', ...err });
+  next();
 };
 
 module.exports = {
